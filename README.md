@@ -1,1 +1,1 @@
-# im-sprint-learn-sql
+# learn-sql
