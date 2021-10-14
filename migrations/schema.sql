@@ -16,6 +16,9 @@ CREATE TABLE `content` (
   -- TODO: `id`
   -- TODO: `title`
   -- TODO: `body`
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `title` varchar(255) not NULL,
+  `body` varchar(255) not NULL,
   `created_at` timestamp not NULL DEFAULT CURRENT_TIMESTAMP,
   `userId` int,
   FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
@@ -24,22 +27,30 @@ CREATE TABLE `content` (
 -- PART 5:
 -- 아래 주석을 제거하고 category, content_category, role 테이블을 만드세요.
 
-/*
+
 CREATE TABLE `category` (
   -- TODO:
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255) not NULL
 );
 
 
 CREATE TABLE `content_category` (
   -- TODO:
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `contentId` int not NULL,
+  `categoryId` int not NULL,
+  FOREIGN KEY (`contentId`) REFERENCES `content` (`id`),
+  FOREIGN KEY (`categoryId`) REFERENCES `category` (`id`)
 );
 
 
 CREATE TABLE `role` (
   -- TODO:
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255) not NULL
 );
 
 
 ALTER TABLE `user` ADD roleId int;
 ALTER TABLE `user` ADD FOREIGN KEY (`roleId`) REFERENCES `role` (`id`);
-*/
